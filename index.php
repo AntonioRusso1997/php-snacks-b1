@@ -99,61 +99,81 @@
 
 
 
-// SNACK 3
+// // SNACK 3
 
-// Creare un array di array. Ogni array figlio avrà come chiave una data in questo formato: DD-MM-YYYY es 01-01-2007 e come valore
-// un array di post associati a quella data. Stampare ogni data con i relativi post.
+// // Creare un array di array. Ogni array figlio avrà come chiave una data in questo formato: DD-MM-YYYY es 01-01-2007 e come valore
+// // un array di post associati a quella data. Stampare ogni data con i relativi post.
 
-$posts = [
+// $posts = [
 
-    '10/01/2019' => [
-        [
-            'title' => 'Post 1',
-            'author' => 'Michele Papagni',
-            'text' => 'Testo post 1'
-        ],
-        [
-            'title' => 'Post 2',
-            'author' => 'Michele Papagni',
-            'text' => 'Testo post 2'
-        ],
-    ],
-    '10/02/2019' => [
-        [
-            'title' => 'Post 3',
-            'author' => 'Michele Papagni',
-            'text' => 'Testo post 3'
-        ]
-    ],
-    '15/05/2019' => [
-        [
-            'title' => 'Post 4',
-            'author' => 'Michele Papagni',
-            'text' => 'Testo post 4'
-        ],
-        [
-            'title' => 'Post 5',
-            'author' => 'Michele Papagni',
-            'text' => 'Testo post 5'
-        ],
-        [
-            'title' => 'Post 6',
-            'author' => 'Michele Papagni',
-            'text' => 'Testo post 6'
-        ]
-    ],
-];
+//     '10/01/2019' => [
+//         [
+//             'title' => 'Post 1',
+//             'author' => 'Michele Papagni',
+//             'text' => 'Testo post 1'
+//         ],
+//         [
+//             'title' => 'Post 2',
+//             'author' => 'Michele Papagni',
+//             'text' => 'Testo post 2'
+//         ],
+//     ],
+//     '10/02/2019' => [
+//         [
+//             'title' => 'Post 3',
+//             'author' => 'Michele Papagni',
+//             'text' => 'Testo post 3'
+//         ]
+//     ],
+//     '15/05/2019' => [
+//         [
+//             'title' => 'Post 4',
+//             'author' => 'Michele Papagni',
+//             'text' => 'Testo post 4'
+//         ],
+//         [
+//             'title' => 'Post 5',
+//             'author' => 'Michele Papagni',
+//             'text' => 'Testo post 5'
+//         ],
+//         [
+//             'title' => 'Post 6',
+//             'author' => 'Michele Papagni',
+//             'text' => 'Testo post 6'
+//         ]
+//     ],
+// ];
 
-foreach($posts as $date => $element){
-    echo "<h1> <strong>Data: $date</strong> </h1>";
-    foreach($element as $key => $post){
-        foreach($post as $postInfo => $info){
-            if($postInfo === 'title'){
-                echo "<h3>$postInfo : $info</h3>";
-            }else{
-               echo "<p>$postInfo : $info</p>";
+// foreach($posts as $date => $element){
+//     echo "<h1> <strong>Data: $date</strong> </h1>";
+//     foreach($element as $key => $post){
+//         foreach($post as $postInfo => $info){
+//             if($postInfo === 'title'){
+//                 echo "<h3>$postInfo : $info</h3>";
+//             }else{
+//                echo "<p>$postInfo : $info</p>";
+//             }
+//         }
+//     }
+// }
+
+// SNACK 4
+
+// Creare un array con 15 numeri casuali ( da 1 a 100), tenendo conto che l’array non dovrà contenere lo stesso numero più di una volta (modificato) 
+
+$i = 0;
+$randomNumbers = [];
+    do {
+        $Number = rand(1, 100);
+        if (!in_array($Number, $randomNumbers))
+            {
+                array_push($randomNumbers, $Number);
+                $i++;
             }
-        }
-    }
-}
+
+    } while ($i < 15);
+    var_dump($randomNumbers);
+
+foreach ($randomNumbers as $number)
+    echo ' <h2>' . $number . ' </h2>';
 ?>
