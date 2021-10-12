@@ -161,19 +161,57 @@
 
 // Creare un array con 15 numeri casuali ( da 1 a 100), tenendo conto che l’array non dovrà contenere lo stesso numero più di una volta (modificato) 
 
-$i = 0;
-$randomNumbers = [];
-    do {
-        $Number = rand(1, 100);
-        if (!in_array($Number, $randomNumbers))
-            {
-                array_push($randomNumbers, $Number);
-                $i++;
+// $i = 0;
+// $randomNumbers = [];
+//     do {
+//         $Number = rand(1, 100);
+//         if (!in_array($Number, $randomNumbers))
+//             {
+//                 array_push($randomNumbers, $Number);
+//                 $i++;
+//             }
+
+//     } while ($i < 15);
+//     var_dump($randomNumbers);
+
+// foreach ($randomNumbers as $number)
+//     echo ' <h2>' . $number . ' </h2>';
+
+include __DIR__ . '/partials/database.php'
+
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <?php
+            foreach ($db as $key => $role){
+                if ($key === 'teachers') {
+                    foreach ($role as $person){
+                        echo '<div class="gray">';
+                        echo $person['name'] . ' ' . $person['lastname'];
+                        echo '</div>';
+                    }
+                }                    
+                else {
+                    foreach ($role as $person){
+                        echo '<div class="green">';
+                        echo $person['name'] . ' ' . $person['lastname'];
+                        echo '</div>';
+                    }
+                }
             }
 
-    } while ($i < 15);
-    var_dump($randomNumbers);
-
-foreach ($randomNumbers as $number)
-    echo ' <h2>' . $number . ' </h2>';
-?>
+        ?>
+    </div>
+</body>
+</html>
